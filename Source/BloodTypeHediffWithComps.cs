@@ -4,9 +4,9 @@ namespace BloodTypes
 {
     public class BloodTypeHediffWithComps : HediffWithComps
     {
-        public BloodType BloodType = BloodType.Random();
+        public BloodType BloodType;
 
-        public override string LabelInBrackets => BloodType?.ToString() ?? "Blood!";
+        public override string LabelInBrackets => BloodType?.ToString();
 
         public override void ExposeData()
         {

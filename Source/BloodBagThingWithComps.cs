@@ -4,7 +4,7 @@ namespace BloodTypes
 {
     public class BloodBagThingWithComps : ThingWithComps
     {
-        public BloodType BloodType;
+        public BloodType BloodType = BloodType.Random();
 
         public override string Label =>
             base.Label + (BloodType != null ? "[" + BloodType + "]" : "[Universal]");
@@ -14,7 +14,7 @@ namespace BloodTypes
         {
             return other is BloodBagThingWithComps withComps
                    && base.CanStackWith(withComps) 
-                   && withComps.BloodType.Equals(BloodType);
+                   && withComps?.BloodType == BloodType;
         }
         
         public override void ExposeData()
